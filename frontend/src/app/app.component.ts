@@ -13,5 +13,9 @@ export class AppComponent implements OnInit {
     fetch('http://localhost:3000/articles')
       .then(res => res.json())
       .then(res => console.log(res));
+
+    fetch('http://localhost:3000/users')
+      .then(res => res.json())
+      .then(res => console.log(res));
   }
 }

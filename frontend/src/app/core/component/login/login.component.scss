@@ -3,9 +3,8 @@
 .login {
     &__container {
         margin: auto;
-        width: 25%;
+        width: 50%;
         border: 2px solid black;
-        padding: 25px;
     }
 
     &__header {
@@ -22,11 +21,11 @@
         line-height: 2;
 
         &--field {
-            border-radius: 5px;
+            border-radius: 9px;
             height: 35px;
             outline-color: rgb(118, 118, 118);
             border-color: rgb(118, 118, 118);
-            margin-bottom: 15px;
+           
         }
     }
 
@@ -38,11 +37,9 @@
         &--btn {
             background-color: #0AA8C2;
             outline-color: #0AA8C2;
-            padding: 8px;
             color: white;
             border: none;
             width: 50%;
-            cursor: pointer;
         }
     }
 }

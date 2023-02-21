@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ArticlesRoutingModule } from "./articles-routing.module";
 import { ArticlesComponent } from "./articles.component";
@@ -7,7 +8,8 @@ import { ArticlesComponent } from "./articles.component";
         ArticlesComponent
     ],
     imports: [
-        ArticlesRoutingModule
+        ArticlesRoutingModule,
+        CommonModule
     ]
 })
 

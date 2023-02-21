@@ -1,0 +1,40 @@
+@import '../../styles.scss';
+
+.articles {
+    &__container {
+        margin: auto;
+        width: 50%;
+        border: 2px solid black;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        font-weight: 700;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    &__col {
+        &:nth-child(1) {
+            flex: 1 1 15%;
+        }
+
+        &:nth-child(2) {
+            flex: 1 1 65%;
+        }
+
+        &:nth-child(3) {
+            flex: 1 1 20%;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<form [formGroup]="articleForm" (submit)="onSubmit(articleForm)">
+    <div class="add-edit-articles__container">
+        <div class="add-edit-articles__fields">
+            <input formControlName="title" type="text" placeholder="Title">
+            <input formControlName="body" type="text" placeholder="Description">
+            <input formControlName="date" type="text" #date id="date"/>
+        </div>
+        <div class="add-edit-articles__actions">
+            <button type="submit"> {{ btnName }} </button>
+            <button type="button" (click)="onClose.emit(true)"> Cancel </button>
+        </div>
+    </div>
+</form>

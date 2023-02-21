@@ -13,4 +13,12 @@ export class ArticlesService {
     getArticles(): Observable<Articles[]> {
         return this.articlesRepository.getArticles();
     }
+
+    createArticle(body: Articles): Observable<Articles[]> {
+        return this.articlesRepository.createArticles(body);
+    }
+
+    updateArticle(body: Articles): Observable<Articles[]> {
+        return this.articlesRepository.updateArticle(body);
+    }
 }

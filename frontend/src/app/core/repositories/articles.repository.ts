@@ -13,4 +13,12 @@ export class ArticlesRepository {
     getArticles(): Observable<Articles[]> {
         return this.http.get('http://localhost:3000/articles') as Observable<Articles[]>;
     }
+
+    createArticles(body: Articles): Observable<Articles[]> {
+        return this.http.post('http://localhost:3000/articles', body) as Observable<Articles[]>;
+    }
+
+    updateArticle(body: Articles): Observable<Articles[]> {
+        return this.http.put('http://localhost:3000/articles/' + body.id, body) as Observable<Articles[]>;
+    }
 }

@@ -1,0 +1,16 @@
+<form [formGroup]="loginForm">
+    <div class="login__container">
+        <div class="login__header">
+            <h1 > Login </h1>
+        </div>
+    
+        <div class="login__body">
+            <input formControlName="email" class="login__body--field" type="text" placeholder="Email" />
+            <input formControlName="password" class="login__body--field" type="password" placeholder="Password" />
+        </div>
+
+        <div class="login__action">
+            <button class="login__action--btn" (click)="login()"> Log in </button>
+        </div>
+    </div>
+</form>

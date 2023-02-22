@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { LoginComponent } from './core/component/login/login.component';
 import { AppComponent } from './app.component';
+import { LoginGuard } from './core/guards/login.guard';
+import { UsersResolver } from './core/resolvers/users.resolver';
 
 const routes: Routes = [
   {
@@ -16,6 +18,10 @@ const routes: Routes = [
       },
       {
         path: 'login',
+        resolve: {
+          users: UsersResolver
+        },
+        canActivate: [LoginGuard],
         component: LoginComponent
       },
       {

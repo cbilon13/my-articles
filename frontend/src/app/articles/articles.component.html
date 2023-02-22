@@ -7,6 +7,10 @@
             <button class="articles__action--create" type="button" (click)="create(true)" [hidden]="!!isCreate"> Create </button>
         </div>
     </div>
+
+    <section>
+        <articles-filter [articles]="allArticles" (filteredArticles)="filter($event)"></articles-filter>
+    </section>
     
     <ng-container *ngIf="!isCreate; else addEditArticles">
         <div class="articles__header">

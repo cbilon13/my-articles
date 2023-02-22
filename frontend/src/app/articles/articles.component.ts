@@ -12,11 +12,19 @@ export class ArticlesComponent implements OnInit {
     isCreate: boolean = false;
 
     selectedArticle!: Articles;
-
+    allArticles!: Articles[];
     constructor(private articlesService: ArticlesService) { console.log('ArticlesComponent') }
     // trackBy: identify
     ngOnInit(): void {
-        this.articlesService.getArticles().subscribe(articles => this.articles = articles);
+        this.articlesService.getArticles().subscribe(articles => {
+            this.articles = articles;
+            this.allArticles = articles;
+        });
+    }
+
+    filter(articles: Articles[] | null): void {
+        console.log(this.allArticles);
+        this.articles = articles ?? this.allArticles;
     }
 
     edit(article: Articles): void {

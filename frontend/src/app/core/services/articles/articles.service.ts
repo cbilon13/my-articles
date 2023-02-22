@@ -14,6 +14,10 @@ export class ArticlesService {
         return this.articlesRepository.getArticles();
     }
 
+    getArticleById(id: string): Observable<Articles> {
+        return this.articlesRepository.getArticleById(id);
+    }
+
     createArticle(body: Articles): Observable<Articles[]> {
         return this.articlesRepository.createArticles(body);
     }

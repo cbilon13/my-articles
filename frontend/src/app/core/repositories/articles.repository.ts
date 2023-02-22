@@ -14,6 +14,10 @@ export class ArticlesRepository {
         return this.http.get('http://localhost:3000/articles') as Observable<Articles[]>;
     }
 
+    getArticleById(id: string): Observable<Articles> {
+        return this.http.get('http://localhost:3000/articles/' + id) as Observable<Articles>;
+    }
+
     createArticles(body: Articles): Observable<Articles[]> {
         return this.http.post('http://localhost:3000/articles', body) as Observable<Articles[]>;
     }

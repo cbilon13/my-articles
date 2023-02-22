@@ -9,24 +9,20 @@
     }
 
     &__header {
-        display: flex;
         flex-direction: row;
-        width: 100%;
         justify-content: space-between;
         font-weight: 700;
     }
 
     &__body {
-        display: flex;
         flex-direction: row;
-        width: 100%;
         justify-content: space-between;
         flex-wrap: wrap;
         margin-bottom: 5px;
-        border: 1px solid #cfcece;
+        border: 1px solid $gray;
 
         &:hover {
-            background-color: palevioletred;
+            background-color: $pink;
             cursor: pointer;
         }
     }
@@ -46,13 +42,11 @@
     }
 
     &__action {
-        display: flex;
         align-self: center;
         &--create{
-            background-color: #0AA8C2;
-            outline-color: #0AA8C2;
-            padding: 8px;
-            color: white;
+            background-color: $blue;
+            outline-color: $blue;
+            color: $white;
             border: none;
             cursor: pointer;
             padding: 11px;

@@ -1,15 +1,15 @@
 <form [formGroup]="loginForm">
     <div class="login__container">
-        <div class="login__header">
+        <div class="login__header custom__row">
             <h1 > Login </h1>
         </div>
     
-        <div class="login__body">
+        <div class="login__body custom__row">
             <input formControlName="email" class="login__body--field" type="text" placeholder="Email" />
             <input formControlName="password" class="login__body--field" type="password" placeholder="Password" />
         </div>
 
-        <div class="login__action">
+        <div class="login__action custom__row">
             <button class="login__action--btn" (click)="login()"> Log in </button>
         </div>
     </div>

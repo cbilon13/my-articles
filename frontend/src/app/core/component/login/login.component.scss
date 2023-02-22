@@ -4,42 +4,36 @@
     &__container {
         margin: auto;
         width: 25%;
-        border: 2px solid black;
+        border: 2px solid $black;
         padding: 25px;
     }
 
     &__header {
-        display: flex;
         text-align: center;
-        width: 100%;   
     }
 
     &__body {
-        display: flex;
         text-align: center;
-        width: 100%;
         flex-direction: column;
         line-height: 2;
 
         &--field {
             border-radius: 5px;
             height: 35px;
-            outline-color: rgb(118, 118, 118);
-            border-color: rgb(118, 118, 118);
+            outline-color: $gray;
+            border-color: $gray;
             margin-bottom: 15px;
         }
     }
 
     &__action {
-        display: flex;
-        width: 100%;
         justify-content: center;
 
         &--btn {
-            background-color: #0AA8C2;
-            outline-color: #0AA8C2;
+            background-color: $blue;
+            outline-color: $blue;
             padding: 8px;
-            color: white;
+            color: $white;
             border: none;
             width: 50%;
             cursor: pointer;

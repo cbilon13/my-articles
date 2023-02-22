@@ -1,10 +1,10 @@
-<div class="articles__container">
-    <div style="display: flex; width: 100%; justify-content: space-between;">
+<div class="articles custom__container">
+    <div class="custom__row" style="justify-content: space-between;">
         <div>
             <h1> Articles </h1>
         </div>
         <div class="articles__action">
-            <button class="articles__action--create" type="button" (click)="create(true)" [hidden]="!!isCreate"> Create </button>
+            <button class="articles__action--create" type="button" [routerLink]="['create']"> Create </button>
         </div>
     </div>
 
@@ -12,26 +12,20 @@
         <articles-filter [articles]="allArticles" (filteredArticles)="filter($event)"></articles-filter>
     </section>
     
-    <ng-container *ngIf="!isCreate; else addEditArticles">
-        <div class="articles__header">
+    <div class="articles__header custom__row">
         <div class="articles__col"> Title </div>
         <div class="articles__col"> Description </div>
         <div class="articles__col"> Date </div>
+    </div>
+    <div class="articles__body custom__row" *ngFor="let article of articles" [routerLink]="[article.id]">
+        <div class="articles__col">
+            {{ article.title }}
         </div>
-        <div class="articles__body"  *ngFor="let article of articles" (click)="edit(article)">
-            <div class="articles__col">
-                {{ article.title }}
-            </div>
-            <div class="articles__col">
-                {{ article.body }}
-            </div>
-            <div class="articles__col">
-                {{ article.date | date:'M/d/yy' }}
-            </div>
+        <div class="articles__col">
+            {{ article.body }}
         </div>
-    </ng-container>
-    <ng-template #addEditArticles>
-        <add-edit-articles (onClose)="close($event)" [selectedArticle]="selectedArticle"></add-edit-articles>
-    </ng-template>
-   
+        <div class="articles__col">
+            {{ article.date | date:'yyyy-MM-dd' }}
+        </div>
+    </div>
 </div>

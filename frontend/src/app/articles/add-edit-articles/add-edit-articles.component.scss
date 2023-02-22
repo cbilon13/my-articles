@@ -1,0 +1,50 @@
+@import '../../../styles.scss';
+
+.add-edit-articles {
+    &__container {
+        margin: auto;
+        width: 60%;
+        border: 2px solid $black;
+        padding: 25px;
+    }
+
+    &__label {
+        font-size: 16px;
+        font-weight:800;
+    }
+
+    &__fields {
+        flex-direction: column;
+
+        input {
+            border-radius: 5px;
+            height: 35px;
+            outline-color: $gray;
+            border-color: $gray;
+            margin-bottom: 15px;
+        }
+       
+    }
+
+    &__actions {
+        justify-content: flex-end;
+        
+        &--btn {
+            color: $white;
+            border: none;
+            cursor: pointer;
+            padding: 11px;
+            margin-right: 10px;
+        }
+
+        &--btn:nth-child(1) {
+            background-color: $blue;
+            outline-color: $blue;
+        }
+
+        &--btn:nth-child(2) {
+            background-color: $danger;
+            outline-color: $danger;
+        }
+    }
+}

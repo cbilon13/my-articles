@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Users } from "src/app/shared/models/users.model";
 import { AuthService } from "../../services/auth/auth.service";
 import { UsersService } from "../../services/users/users.service";
@@ -19,10 +19,11 @@ export class LoginComponent implements OnInit {
         private usersService: UsersService, 
         private fb: FormBuilder,
         private authService: AuthService,
-        private router: Router) {  }
+        private router: Router,
+        private route: ActivatedRoute) {  }
 
     ngOnInit(): void {
-        this.usersService.getUsers().subscribe(users => this.users = users);
+        this.users = this.route.snapshot.data['users'];
         this.loginForm = this.fb.group({
             email: ['', [Validators.required]],
             password: ['',  [Validators.required]]

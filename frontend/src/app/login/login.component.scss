@@ -1,0 +1,42 @@
+@import '../../../../styles.scss';
+
+.login {
+    &__container {
+        margin: auto;
+        width: 25%;
+        border: 2px solid $black;
+        padding: 25px;
+    }
+
+    &__header {
+        text-align: center;
+    }
+
+    &__body {
+        text-align: center;
+        flex-direction: column;
+        line-height: 2;
+
+        &--field {
+            border-radius: 5px;
+            height: 35px;
+            outline-color: $gray;
+            border-color: $gray;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__action {
+        justify-content: center;
+
+        &--btn {
+            background-color: $blue;
+            outline-color: $blue;
+            padding: 8px;
+            color: $white;
+            border: none;
+            width: 50%;
+            cursor: pointer;
+        }
+    }
+}

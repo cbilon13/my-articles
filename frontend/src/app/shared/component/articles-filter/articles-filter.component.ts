@@ -27,6 +27,7 @@ export class ArticlesFilterComponent {
                 return article[prop].toString().includes(term);
             });
         } else {
+            // Set search field to empty when category and term is empty
             $('#term').val('');
         }
         

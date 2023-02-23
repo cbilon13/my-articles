@@ -37,6 +37,10 @@ export class AddEditArticlesComponent implements OnInit {
        this.initArticleForm(selectedArticle);
     }
 
+    /**
+     * Submit updated or created article
+     * @param articleForm 
+     */
     onSubmit(articleForm: FormGroup): void {
         this.setDate(articleForm);
         if (articleForm.valid) {
@@ -44,12 +48,21 @@ export class AddEditArticlesComponent implements OnInit {
         }
     }
 
+    /**
+     * Set date in article form
+     * Date is not dynamically updating when changes has been made on template
+     * @param articleForm 
+     */
     setDate(articleForm: FormGroup): void {
         const date = $('#date').val();
         articleForm.get('date')?.setValue(date);
         articleForm.get('date')?.updateValueAndValidity();
     }
 
+    /**
+     * Use to update or insert article
+     * @param articleForm contains article information
+     */
 	private upsertArticle(articleForm: FormGroup): void {
 		const request$ = !!articleForm.get('id')?.value 
 		? this.articlesService.updateArticle(articleForm.value)
@@ -60,6 +73,9 @@ export class AddEditArticlesComponent implements OnInit {
         });
 	}
 
+    /**
+     * Initializa datepicker ui
+     */
     private initDateUI(): void {
         $(function() {
             $("#date").datepicker( {dateFormat : "yy-mm-dd"});
@@ -67,6 +83,10 @@ export class AddEditArticlesComponent implements OnInit {
        );
     }
 
+    /**
+     * Initialize article form
+     * @param article information
+     */
 	private initArticleForm(article: Articles): void {
 		const title = !!article ? article.title : '';
        	const body = !!article ? article.body : '';

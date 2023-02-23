@@ -4,6 +4,7 @@ import { SharedModule } from "../shared/shared.module";
 import { ArticlesRoutingModule } from "./articles-routing.module";
 import { ArticlesComponent } from "./articles.component";
 import { HeaderComponent } from "../core/component/header/header.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     declarations: [

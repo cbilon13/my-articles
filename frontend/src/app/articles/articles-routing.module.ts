@@ -20,7 +20,6 @@ const routes: Routes = [
         },
         component: AddEditArticlesComponent
     },
-    { path: '**', redirectTo: '' }
 ]
 
 @NgModule({

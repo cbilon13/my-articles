@@ -9,33 +9,33 @@ import { UsersResolver } from './core/resolvers/users.resolver';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: AppComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'login',
-        pathMatch: 'full'
-      },
-      {
-        path: 'login',
-        resolve: {
-          users: UsersResolver
-        },
-        canActivate: [LoginGuard],
-        component: LoginComponent
-      },
-      {
-        path: 'articles',
-        canActivate: [AuthGuard],
-        loadChildren: () => import('../app/articles/articles.module').then(m => m.ArticlesModule)
-      }
-    ]
+  },
+  {
+    path: 'login',
+    resolve: {
+      users: UsersResolver
+    },
+    canActivate: [LoginGuard],
+    component: LoginComponent
+  },
+  {
+    path: 'articles',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('../app/articles/articles.module').then(m => m.ArticlesModule)
   },
   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

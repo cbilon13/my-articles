@@ -21,6 +21,7 @@ export class AddEditArticlesComponent implements OnInit {
     articleForm!: FormGroup;
     btnName!: string;
 
+    title!: string;
     constructor(
         private fb: FormBuilder, 
         private articlesService: ArticlesService, 
@@ -31,6 +32,7 @@ export class AddEditArticlesComponent implements OnInit {
     ngOnInit(): void {
        const selectedArticle = this.route.snapshot.data['article'];
        this.btnName = !!selectedArticle ? 'Update' : 'Create';
+       this.title = !!selectedArticle ? 'Edit Article' : 'Create Article';
 	   this.initDateUI();
        this.initArticleForm(selectedArticle);
     }

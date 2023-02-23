@@ -1,17 +1,15 @@
 <form [formGroup]="articleForm" (submit)="onSubmit(articleForm)">
     <div class="add-edit-articles custom__container">
-        <div>
-            <h1> Edit Article </h1>
-        </div>
+        <article-header [title]="title"></article-header>
         <div class="add-edit-articles__fields custom__row">
-            <label class="add-edit-articles__label"> Id </label>
-            <input *ngIf="!!articleForm.get('id')?.value"  formControlName="id" type="text" placeholder="Title" readonly>
+            <label *ngIf="!!articleForm.get('id')?.value" class="add-edit-articles__label"> Id </label>
+            <input class="add-edit-articles__fields--input custom__disabled" *ngIf="!!articleForm.get('id')?.value" formControlName="id" type="text" placeholder="Title" readonly>
             <label class="add-edit-articles__label"> Title </label>
-            <input formControlName="title" type="text" placeholder="Title">
+            <input class="add-edit-articles__fields--input" formControlName="title" type="text" placeholder="Title">
             <label class="add-edit-articles__label"> Description </label>
-            <input formControlName="body" type="text" placeholder="Description">
+            <input class="add-edit-articles__fields--input" formControlName="body" type="text" placeholder="Description">
             <label class="add-edit-articles__label"> Date </label>
-            <input formControlName="date" type="date" #date id="date"/>
+            <input class="add-edit-articles__fields--input" formControlName="date" type="date" #date id="date"/>
         </div>
         <div class="add-edit-articles__actions custom__row">
             <button class="add-edit-articles__actions--btn" type="submit"> {{ btnName }} </button>

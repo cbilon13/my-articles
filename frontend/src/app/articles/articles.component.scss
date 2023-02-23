@@ -41,15 +41,5 @@
         }
     }
 
-    &__action {
-        align-self: center;
-        &--create{
-            background-color: $blue;
-            outline-color: $blue;
-            color: $white;
-            border: none;
-            cursor: pointer;
-            padding: 11px;
-        }
-    }
+   
 }

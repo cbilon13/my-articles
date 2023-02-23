@@ -1,13 +1,8 @@
 <div class="articles custom__container">
-    <div class="custom__row" style="justify-content: space-between;">
-        <div>
-            <h1> Articles </h1>
-        </div>
-        <div class="articles__action">
-            <button class="articles__action--create" type="button" [routerLink]="['create']"> Create </button>
-        </div>
-    </div>
-
+    <section>
+        <article-header [title]="title" [isCreateBtnShow]="true"></article-header>
+    </section>
+    
     <section>
         <articles-filter [articles]="allArticles" (filteredArticles)="filter($event)"></articles-filter>
     </section>
@@ -17,6 +12,7 @@
         <div class="articles__col"> Description </div>
         <div class="articles__col"> Date </div>
     </div>
+    
     <div class="articles__body custom__row" *ngFor="let article of articles" [routerLink]="[article.id]">
         <div class="articles__col">
             {{ article.title }}

@@ -16,14 +16,13 @@
     &__fields {
         flex-direction: column;
 
-        input {
+        &--input {
             border-radius: 5px;
             height: 35px;
             outline-color: $gray;
             border-color: $gray;
             margin-bottom: 15px;
         }
-       
     }
 
     &__actions {

@@ -13,6 +13,8 @@ export class ArticlesComponent implements OnInit {
 
     selectedArticle!: Articles;
     allArticles!: Articles[];
+
+    title = 'Articles';
     constructor(private articlesService: ArticlesService) {  }
     // trackBy: identify
     ngOnInit(): void {

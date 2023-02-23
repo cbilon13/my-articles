@@ -6,7 +6,7 @@ import { ArticlesFilterComponent } from "./component/articles-filter.component";
 
 @NgModule({
     declarations: [
-        ArticlesFilterComponent
+        ArticlesFilterComponent,
     ],
     imports: [
         CommonModule,

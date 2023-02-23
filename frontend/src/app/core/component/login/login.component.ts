@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
     
     constructor(
-        private usersService: UsersService, 
         private fb: FormBuilder,
         private authService: AuthService,
         private router: Router,
@@ -31,10 +30,21 @@ export class LoginComponent implements OnInit {
     }
 
     login(): void {
-        const isValidUser = this.users.some(user => user.email === this.loginForm.get('email')?.value && user.username === this.loginForm.get('password')?.value);
-        if (this.loginForm.valid && isValidUser) {
-            this.authService.setLoginStatus(true);
-            this.router.navigate(['/articles']);
+        const user = this.users.find(user => user.email === this.loginForm.get('email')?.value && user.username === this.loginForm.get('password')?.value);
+        if (this.loginForm.valid) {
+            this.authService.login(user).subscribe({
+                next: () => {
+                    this.authService.setLoginStatus('true');
+                    this.router.navigate(['/articles']);
+                },
+                error: () => {
+                    console.warn('Incorrect login credentials')
+                    this.loginForm.get('email')?.setValue('');
+                    this.loginForm.get('password')?.setValue('')
+                    this.router.navigate(['/login']);
+                }
+            })
+            
         }
     }
  }

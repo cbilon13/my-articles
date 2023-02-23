@@ -13,7 +13,7 @@
         <div class="articles__col"> Date </div>
     </div>
     
-    <div class="articles__body custom__row" *ngFor="let article of articles" [routerLink]="[article.id]">
+    <div class="articles__body custom__row" *ngFor="let article of articles; trackBy: trackByFn" [routerLink]="[article.id]">
         <div class="articles__col">
             {{ article.title }}
         </div>

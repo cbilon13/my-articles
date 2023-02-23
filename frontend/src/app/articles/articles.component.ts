@@ -16,19 +16,30 @@ export class ArticlesComponent implements OnInit {
 
     title = 'Articles';
     constructor(private articlesService: ArticlesService) {  }
-    // trackBy: identify
+
     ngOnInit(): void {
         this.articlesService.getArticles().subscribe(articles => {
             this.articles = articles;
-            this.allArticles = articles;
+            this.allArticles = articles; // use to store all articles so when filter is used all articles will still remained
         });
     }
 
+    /**
+     * Use to track article that has been loop in *ngFor
+     * @param index 
+     * @param item 
+     * @returns 
+     */
+    trackByFn(index: any, item: any): any { 
+        return index; 
+    }
+
+    /**
+     * Filter articles based on selected category and term used
+     * @param articles list of articles
+     */
     filter(articles: Articles[] | null): void {
         this.articles = articles ?? this.allArticles;
     }
 
-    openAddEditForm() {
-        this.isOpenAddEditForm = !this.isOpenAddEditForm;
-    }
 }

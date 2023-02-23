@@ -1,0 +1,45 @@
+import { Component, OnInit } from "@angular/core";
+import { ArticlesService } from "../core/services/articles/articles.service";
+import { Articles } from "../shared/models/articles.model";
+
+@Component({
+    selector: 'my-articles',
+    templateUrl: './articles.component.html',
+    styleUrls: ['./articles.component.scss']
+})
+export class ArticlesComponent implements OnInit {
+    articles!: Articles[];
+    isOpenAddEditForm: boolean = false;
+
+    selectedArticle!: Articles;
+    allArticles!: Articles[];
+
+    title = 'Articles';
+    constructor(private articlesService: ArticlesService) {  }
+
+    ngOnInit(): void {
+        this.articlesService.getArticles().subscribe(articles => {
+            this.articles = articles;
+            this.allArticles = articles; // use to store all articles so when filter is used all articles will still remained
+        });
+    }
+
+    /**
+     * Use to track article that has been loop in *ngFor
+     * @param index 
+     * @param item 
+     * @returns 
+     */
+    trackByFn(index: any, item: any): any { 
+        return index; 
+    }
+
+    /**
+     * Filter articles based on selected category and term used
+     * @param articles list of articles
+     */
+    filter(articles: Articles[] | null): void {
+        this.articles = articles ?? this.allArticles;
+    }
+
+}

@@ -1,0 +1,27 @@
+<div class="articles custom__container">
+    <section>
+        <article-header [title]="title" [isCreateBtnShow]="true"></article-header>
+    </section>
+    
+    <section>
+        <articles-filter [articles]="allArticles" (filteredArticles)="filter($event)"></articles-filter>
+    </section>
+    
+    <div class="articles__header custom__row">
+        <div class="articles__col"> Title </div>
+        <div class="articles__col"> Description </div>
+        <div class="articles__col"> Date </div>
+    </div>
+    
+    <div class="articles__body custom__row" *ngFor="let article of articles; trackBy: trackByFn" [routerLink]="[article.id]">
+        <div class="articles__col">
+            {{ article.title }}
+        </div>
+        <div class="articles__col">
+            {{ article.body }}
+        </div>
+        <div class="articles__col">
+            {{ article.date | date:'yyyy-MM-dd' }}
+        </div>
+    </div>
+</div>
